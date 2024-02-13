@@ -67,7 +67,11 @@ public class Chapter6Section2 {
 		List<Order> orders = Arrays.asList(order1, order2, order3, order4, order5);
 		// TODO: Filter orders in ERROR state
 
-		
+		List<Order> filteredOrders = orders.stream()
+				.filter(order -> order.getStatus() == OrderStatus.ERROR)
+				.toList();
+
+		System.out.println(filteredOrders);
 		
 	}
 }

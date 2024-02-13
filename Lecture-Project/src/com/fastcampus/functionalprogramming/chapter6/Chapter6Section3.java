@@ -66,7 +66,11 @@ public class Chapter6Section3 {
 		List<Order> orders = Arrays.asList(order1, order2, order3, order4, order5);
 		// TODO: Create list of createdByUserId
 		
-		
+		List<Long> mapedOrders = orders.stream()
+				.map(Order::getCreatedByUserId)
+				.toList();
+
+		System.out.println(mapedOrders);
 		
 	}
 }

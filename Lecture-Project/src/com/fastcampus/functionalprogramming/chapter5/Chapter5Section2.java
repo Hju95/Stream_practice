@@ -23,7 +23,8 @@ public class Chapter5Section2 {
 		users.add(new User(3, "Alice"));
 		users.add(new User(1, "Charlie"));
 		users.add(new User(5, "Bob"));
-		
+
+		//printUserField(users, (User user) -> user.getId());
 		printUserField(users, User::getName);
 	}
 

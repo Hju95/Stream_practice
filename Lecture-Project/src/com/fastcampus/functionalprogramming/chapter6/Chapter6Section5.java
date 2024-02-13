@@ -1,5 +1,6 @@
 package com.fastcampus.functionalprogramming.chapter6;
 
+import java.lang.invoke.CallSite;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -70,8 +71,10 @@ public class Chapter6Section5 {
 		
 		// TODO: sort the orders based on createdAt
 
-		
-		
+		List<Order> sortedOrders = orders.stream()
+				.sorted(((o1, o2) -> o1.getCreatedAt().compareTo(o2.getCreatedAt())))
+				.toList();
+		System.out.println(sortedOrders);
 	}
 
 }

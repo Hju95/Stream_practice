@@ -21,6 +21,7 @@ public class Chapter5Section3 {
 		carTypeToConstructorMap.put("van", Van::new);
 		
 		User user = new User(1, "Alice");
+		//BiFunction<Integer, String, User> userCreator = (Integer id, String name) -> new User(id, name);
 		BiFunction<Integer, String, User> userCreator = User::new;
 		User charlie = userCreator.apply(3, "Charlie");
 		System.out.println(charlie);

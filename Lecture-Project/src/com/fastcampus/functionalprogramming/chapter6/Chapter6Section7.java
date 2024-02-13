@@ -21,6 +21,7 @@ public class Chapter6Section7 {
 		Stream<String[]> cityStream = Arrays.stream(cities);
 		Stream<Stream<String>> cityStreamStream = cityStream.map(x -> Arrays.stream(x));
 		List<Stream<String>> cityStreamList = cityStreamStream.collect(Collectors.toList());
+		System.out.println(cityStreamList); //java.util.stream.ReferencePipeline$Head@12edcd21 식으로 나옴
 		
 		Stream<String[]> cityStream2 = Arrays.stream(cities);
 		Stream<String> flattenedCityStream = cityStream2.flatMap(x -> Arrays.stream(x));

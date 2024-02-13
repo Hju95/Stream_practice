@@ -48,9 +48,13 @@ public class Chapter6Section6 {
 		
 		// TODO: created a sorted list of unique CreatedByUserIds from the orders
 
-		
-		
-		
+		List<Long> userIds = orders.stream()
+				.map(Order::getCreatedByUserId)
+				.distinct()
+				.sorted()
+				.toList();
+
+		System.out.println(userIds);
 	}
 
 }

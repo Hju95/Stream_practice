@@ -75,13 +75,21 @@ public class Chapter6Section4 {
 		List<Order> orders = Arrays.asList(order1, order2, order3, order4, order5);
 		
 		// TODO: Find orders in Error status, and extract createdByUserIds as a list
-		
+		List<Long> userIds = orders.stream()
+				.filter(order -> order.getStatus() == OrderStatus.ERROR)
+				.map(Order::getCreatedByUserId)
+				.toList();
+
+		System.out.println(userIds);
 		
 		
 		// TODO: Find orders in ERROR status and created within 24 hours
-		
-		
-		
+		List<Order> ordersInErrorStatusIn24hrs = orders.stream()
+				.filter(order -> order.getStatus() == OrderStatus.ERROR)
+				.filter(order -> order.getCreatedAt().isAfter(now.minusHours(24)))
+				.toList();
+
+		System.out.println(ordersInErrorStatusIn24hrs);
 	}
 
 }
