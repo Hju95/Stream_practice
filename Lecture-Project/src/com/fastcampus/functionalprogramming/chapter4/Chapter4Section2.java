@@ -11,10 +11,11 @@ public class Chapter4Section2 {
 		myStringConsumer.accept("hello");
 		myStringConsumer.accept("world");
 		
-		List<Integer> integerInputs = Arrays.asList(4, 2, 3);
+		List<Integer> integerInputs = Arrays.asList(4, 2, 3); //이미 생성되어있는 배열을 list 형태로 전환할 때 자주 사용. asList 는 add 하면 에러남
 		Consumer<Integer> myIntegerProcessor = x -> 
 			System.out.println("Processing integer " + x);
 		process(integerInputs, myIntegerProcessor);
+
 		Consumer<Integer> myDifferentIntegerProcessor = x -> 
 			System.out.println("Processing integer in different way " + x);
 		process(integerInputs, myDifferentIntegerProcessor);

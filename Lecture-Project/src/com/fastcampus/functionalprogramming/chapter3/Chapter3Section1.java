@@ -11,5 +11,5 @@ public class Chapter3Section1 {
 		int result = myAdder.apply(5);
 		System.out.println(result);
 	}
-
+// 매번 Adder 처럼 클래스를 만들어줘서 써야하는건가? 라는 의문이 들 수 있음 -> Section2
 }

@@ -12,6 +12,7 @@ public class Chapter4Section4 {
 		System.out.println(isPositive.test(-10));
 		
 		List<Integer> inputs = Arrays.asList(10, -5, 4, -2, 0, 3);
+
 		System.out.println("Positive number: " + filter(inputs, isPositive));
 		System.out.println("Non-positive number: " + filter(inputs, isPositive.negate()));
 		System.out.println("Non-negative number: " 

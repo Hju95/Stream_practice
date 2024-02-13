@@ -12,7 +12,8 @@ public class Chapter4Section3 {
 		List<Double> inputs = Arrays.asList(1.1, 2.2, 3.3);	
 		process(inputs, myDoubleProcessor);
 	}
-	
+
+
 	public static <T> void process(List<T> inputs, BiConsumer<Integer, T> processor) {
 		for (int i = 0; i< inputs.size(); i++) {
 			processor.accept(i, inputs.get(i));

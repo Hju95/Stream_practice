@@ -8,4 +8,5 @@ public class Chapter3Section3 {
 		int result = add.apply(3, 5);
 		System.out.println(result);
 	}
+	// 3개 이상을 받는 인터페이스는 없다 -> 직접 구현 가능
 }
