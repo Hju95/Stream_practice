@@ -45,8 +45,9 @@ public class Chapter8Section7 {
 	    List<Order> orders = Arrays.asList(order1, order2, order3, order4);
 	    
 	    // TODO: create a map form order status to the list of corresponding orders
-	    Map<OrderStatus, List<Order>> orderStatusMap;
-	    
+	    Map<OrderStatus, List<Order>> orderStatusMap = orders.stream()
+				.collect(Collectors.groupingBy(Order::getStatus));
+		System.out.println(orderStatusMap);
 	    
 	    Map<OrderStatus, BigDecimal> orderStatusToSumOfAmountMap = orders.stream()
 	    		.collect(Collectors.groupingBy(Order::getStatus,

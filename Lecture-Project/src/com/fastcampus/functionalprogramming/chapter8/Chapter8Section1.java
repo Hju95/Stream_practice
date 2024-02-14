@@ -16,7 +16,7 @@ public class Chapter8Section1 {
 
 	public static void main(String[] args) {
 		Optional<Integer> max = Stream.of(5, 3, 6, 2, 1)
-			.max(Integer::compareTo);
+			.max(Integer::compareTo); //.map((x,y) -> x - y);
 		System.out.println(max.get());
 		
 		User user1 = new User()
@@ -84,6 +84,20 @@ public class Chapter8Section1 {
         
         // TODO: find order with highest amount an in ERROR status
 
+		Order erroredOrderWithMaxAmount = orders.stream()
+				.filter(order -> order.getStatus() == OrderStatus.ERROR)
+				.max((o1, o2) -> o1.getAmount().compareTo(o2.getAmount()))
+				.get();
+
+		System.out.println(erroredOrderWithMaxAmount);
+
+		//에러 상태의 주문들 중에서 가장 큰 amount 만 가져오고 싶을 때
+		BigDecimal maxErroredAmount = orders.stream()
+				.filter(order -> order.getStatus() == OrderStatus.ERROR)
+				.map(Order::getAmount)
+				.max(BigDecimal::compareTo)
+				.orElse(BigDecimal.ZERO); //Defalut 값 지정
+		System.out.println(maxErroredAmount);
 	}
 
 }

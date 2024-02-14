@@ -59,7 +59,9 @@ public class Chapter8Section2 {
         List<Order> orders = Arrays.asList(order1, order2, order3, order4);
         
         // TODO: check if any of orders is in ERROR status
-
+		boolean isAnyOrderInErrorStatus = orders.stream()
+				.anyMatch(order -> order.getStatus() == OrderStatus.ERROR);
+		System.out.println(isAnyOrderInErrorStatus);
 	}
 
 }

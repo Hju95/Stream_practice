@@ -59,7 +59,10 @@ public class Chapter8Section6 {
         List<Order> orders = Arrays.asList(order1, order2, order3, order4);
         
         // TODO: Create a map from order id to order status
-
+		Map<Long, OrderStatus> orderIDToOrderStatusMap = orders.stream()
+				.collect(Collectors.toMap(Order::getId, Order::getStatus));
+		System.out.println(orderIDToOrderStatusMap);
+		System.out.println(orderIDToOrderStatusMap.get(1003L));
 	}
 
 }

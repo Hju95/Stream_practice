@@ -22,7 +22,7 @@ public class Chapter9Section2 {
 		
 		Stream<Integer> integerStream = Stream.of(3, -2, 5, 8, -3, 10)
 				.filter(x -> x > 0)
-				.peek(x -> System.out.println("peeking " + x))
+				.peek(x -> System.out.println("peeking " + x)) // peek : 잠깐 힐끗 보는 함수
 				.filter(x -> x % 2 ==0);
 		System.out.println("Before collect");
 		

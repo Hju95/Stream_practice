@@ -22,7 +22,7 @@ public class Chapter8Section4 {
 		System.out.println(min);
 		
 		int product = numbers.stream()
-				.reduce(1, (x, y) -> x * y);
+				.reduce(1, (x, y) -> x * y); //항상 return 값이 있기에 get 이 필요없다
 		System.out.println(product);
 		
 		List<String> numberStrList = Arrays.asList("3", "2", "5", "-4");
@@ -72,7 +72,11 @@ public class Chapter8Section4 {
         List<Order> orders = Arrays.asList(order1, order2, order3);
         
         // TODO: find the sum of amounts
-        
-        
+        BigDecimal sumOfAmounts = orders.stream()
+				.map(Order::getOrderLines) //Stream<List<OrderLine>>
+				.flatMap(List::stream) //Stream<OrderLine>
+				.map(OrderLine::getAmount) //Stream<BigDecimal>
+				.reduce(BigDecimal.ZERO, BigDecimal::add);
+		System.out.println(sumOfAmounts);
 	}
 }
